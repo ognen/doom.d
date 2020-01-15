@@ -61,6 +61,7 @@
 (setq
  doom-font                       (font-spec :family "SF Mono" :size 13 :weight 'semi-bold)
  doom-big-font                   (font-spec :family "SF Mony" :size 16)
- projectile-gproject-search-path '("~/Workspace")
+ projectile-project-search-path  '("~/Workspace")
  +format-on-save-enabled-modes   '(js2-mode)
- truncate-lines                  nil)
+ truncate-lines                  nil
+ js-indent-level                 2)
