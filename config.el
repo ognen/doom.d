@@ -6,7 +6,10 @@
 ;; Configre lispy with more sane navigation keys
 
 (after! lispy
-  (lispy-set-key-theme '(paredit c-digits)))
+  (lispy-set-key-theme '(paredit c-digits))
+  ;; The following function breaks company when
+  ;; cider is jacked in.
+  (defun lispy-clojure-complete-at-point () nil))
 
 ;; (after! counsel
 ;;   (setq counsel-rg-base-command "~/.homebrew/bin/rg -S --no-heading --line-number --color never %s ."))
@@ -31,10 +34,7 @@
    :nv "(" #'lispyville-backward-up-list
    :nv ")" #'lispyville-up-list
    :nv "C-(" #'sp-down-sexp
-   :nv "C-)" #'sp-backward-down-sexp)
-  ;; The following function breaks company when
-  ;; cider is jacked in.
-  (defun lispy-clojure-complete-at-point () nil))
+   :nv "C-)" #'sp-backward-down-sexp))
 
 (map!
  :leader
