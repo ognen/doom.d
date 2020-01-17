@@ -31,7 +31,10 @@
    :nv "(" #'lispyville-backward-up-list
    :nv ")" #'lispyville-up-list
    :nv "C-(" #'sp-down-sexp
-   :nv "C-)" #'sp-backward-down-sexp))
+   :nv "C-)" #'sp-backward-down-sexp)
+  ;; The following function breaks company when
+  ;; cider is jacked in.
+  (defun lispy-clojure-complete-at-point () nil))
 
 (map!
  :leader
