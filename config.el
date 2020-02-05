@@ -67,4 +67,5 @@
  projectile-project-search-path  '("~/Workspace")
  +format-on-save-enabled-modes   '(js2-mode)
  truncate-lines                  nil
- js-indent-level                 2)
+ js-indent-level                 2
+ mac-mouse-wheel-smooth-scroll   t)
