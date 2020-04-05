@@ -17,7 +17,37 @@
   (setq org-bullets-bullet-list '("⁖")
         org-ellipsis " ... "))
 
-(add-hook! 'after-change-major-mode-hook (setq truncate-lines nil))
+;; Cider (or evil) and company don't play so well
+;; this fixes https://github.com/hlissner/doom-emacs/issues/2610
+(after! cider
+  (add-hook 'company-completion-started-hook 'ans/set-company-maps)
+  (add-hook 'company-completion-finished-hook 'ans/unset-company-maps)
+  (add-hook 'company-completion-cancelled-hook 'ans/unset-company-maps)
+
+  (defun ans/unset-company-maps (&rest unused)
+    "Set default mappings (outside of company).
+Arguments (UNUSED) are ignored."
+    (general-def
+      :states 'insert
+      :keymaps 'override
+      "TAB" nil
+      "RET" nil
+      "<up>" nil
+      "<down>" nil))
+
+  (defun ans/set-company-maps (&rest unused)
+    "Set maps for when you're inside company completion.
+Arguments (UNUSED) are ignored."
+    (general-def
+      :states 'insert
+      :keymaps 'override
+      "TAB" 'company-complete-common
+      "RET" 'company-complete-selection
+      "<down>" 'company-select-next-or-abort
+      "<up>" 'company-select-previous-or-abort)))
+
+(add-hook! 'after-change-major-mode-hook
+  (setq truncate-lines nil))
 
 (after! lispyville
   (map!
