@@ -66,6 +66,10 @@ Arguments (UNUSED) are ignored."
    :nv "C-(" #'sp-down-sexp
    :nv "C-)" #'sp-backward-down-sexp))
 
+(after! cider-mode
+  (define-clojure-indent
+    (for-all 1)
+    (lazy-seq 0)))
 (map!
  :leader
  :prefix "b"
