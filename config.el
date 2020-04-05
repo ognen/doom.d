@@ -96,9 +96,9 @@ Arguments (UNUSED) are ignored."
 
 ;; General settings
 (setq
- doom-font                       (font-spec :family "SF Mono" :size 13 :weight 'semi-bold)
- doom-big-font                   (font-spec :family "SF Mony" :size 16)
- projectile-project-search-path  '("~/Workspace")
+ doom-font                       (font-spec :family "SF Mono" :size 13.0 :height 1.2 :weight 'semi-bold)
+ doom-big-font                   (font-spec :family "SF Mony" :size 16.0)
+ projectile-project-search-path  '("~/Workspace" "~/Workspace/fp" "~/Notes")
  +format-on-save-enabled-modes   '(js2-mode)
  truncate-lines                  nil
  js-indent-level                 2
